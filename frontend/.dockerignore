@@ -1,0 +1,18 @@
+# Ne pas copier les dépendances locales
+node_modules
+.pnpm
+
+.react-router
+build
+README.md
+npm-debug.log
+
+# Fichiers inutiles
+.dockerignore
+Dockerfile
+*.log
+.env
+.vite
+.cache
+.idea
+.vscode
