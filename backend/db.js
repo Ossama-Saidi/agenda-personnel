@@ -1,8 +1,8 @@
 const sqlite3 = require("sqlite3").verbose();
 const { open } = require("sqlite");
-require("dotenv").config();
+// require("dotenv").config();
 
-const dbFile = process.env.DB_FILE || "./data.db";
+const dbFile = "./data.db";
 
 module.exports = open({
   filename: dbFile,

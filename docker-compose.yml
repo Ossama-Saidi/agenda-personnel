@@ -19,8 +19,6 @@ services:
     volumes:
       - ./frontend:/app
     working_dir: /app
-    environment:
-      - VITE_API_URL=http://localhost/api
     networks:
       - agenda_net
 

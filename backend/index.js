@@ -1,4 +1,4 @@
-require("dotenv").config(); // Charger les variables d'environnement
+// require("dotenv").config(); // Charger les variables d'environnement
 
 const express = require("express");
 const cors = require("cors");
@@ -18,7 +18,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: `http://localhost:${process.env.PORT || 5000}`,
+      url: `http://localhost:5000`,
     },
   ],
   components: {
