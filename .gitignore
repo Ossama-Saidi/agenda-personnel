@@ -1,0 +1,12 @@
+node_modules
+.pnpm
+pnpm-lock.yaml
+dist
+build
+.env
+.DS_Store
+sqlite.db
+*.log
+.idea
+.vscode
+docker/sqlite-data/

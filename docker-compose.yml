@@ -1,0 +1,45 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: agenda_backend
+    volumes:
+      - ./backend:/app
+      - sqlite_data:/data
+    working_dir: /app
+    env_file:
+      - .env
+    networks:
+      - agenda_net
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: agenda_frontend
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    environment:
+      - VITE_API_URL=http://localhost/api
+    networks:
+      - agenda_net
+
+  webserver:
+    image: nginx:stable-alpine
+    container_name: agenda_nginx
+    ports:
+      - "81:80"
+    volumes:
+      - ./frontend/build:/usr/share/nginx/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - agenda_net
+
+volumes:
+  sqlite_data:
+
+networks:
+  agenda_net:
